@@ -8,7 +8,6 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 playerVelocity;
     private float speed = 5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class InputManager : MonoBehaviour
 {
@@ -14,12 +15,13 @@ public class InputManager : MonoBehaviour
         motor = GetComponent<PlayerMotor>();
     }
 
+
     void FixedUpdate()
     {
         motor.ProcessMove(onFoot.Movement.ReadValue<Vector2>());
     }
 
-    void OnEnable()
+    private void OnEnable()
     {
         onFoot.Enable();
     }
