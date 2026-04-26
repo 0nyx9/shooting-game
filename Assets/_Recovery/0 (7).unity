@@ -1241,7 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3fcab62017cec55ab7630d9d96b078c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlidingDoor
-  openSpeed: 1
+  openSpeed: 2
   downDistance: 3
 --- !u!1001 &1402063265
 PrefabInstance:
