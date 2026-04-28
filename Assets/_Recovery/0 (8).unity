@@ -1527,17 +1527,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 989472830854630277, guid: ed844d702093a786f87da5cee8663481, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 8102295597139962239, guid: ed844d702093a786f87da5cee8663481, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8102295597139962239, guid: ed844d702093a786f87da5cee8663481, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8102295597139962239, guid: ed844d702093a786f87da5cee8663481, type: 3}
       propertyPath: m_TagString
@@ -1620,7 +1612,7 @@ MonoBehaviour:
   distance: 3
   mask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

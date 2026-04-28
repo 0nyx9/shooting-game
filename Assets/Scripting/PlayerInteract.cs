@@ -24,7 +24,13 @@ public class PlayerInteract : MonoBehaviour
         RaycastHit hitInfo;
         if (Physics.Raycast(ray, out hitInfo, distance, mask))
         {
-            
+            if (hitInfo.collider.GetComponent<Interactable>() != null)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    Debug.Log(hitInfo.collider.GetComponent<Interactable>().promptMessage);
+                }
+            }
         }
 
     }
