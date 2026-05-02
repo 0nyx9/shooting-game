@@ -2171,6 +2171,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8102295597139962239, guid: ed844d702093a786f87da5cee8663481, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2165114888530134176}
+    - targetCorrespondingSourceObject: {fileID: 8102295597139962239, guid: ed844d702093a786f87da5cee8663481, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2165114888530134177}
   m_SourcePrefab: {fileID: 100100000, guid: ed844d702093a786f87da5cee8663481, type: 3}
 --- !u!1 &2165114888530134163 stripped
 GameObject:
@@ -2233,6 +2236,21 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &2165114888530134177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2165114888530134163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2736c1c0ed4d3cd31b8acd4cc91b4648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  chipSpeed: 2
+  frontHealthBar: {fileID: 451078761}
+  backHealthBar: {fileID: 1777639989}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
