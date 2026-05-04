@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public Image frontHealthBar;
     public Image backHealthBar;
     public TextMeshProUGUI healthText;
-    [Header("Health Bar")]
+    [Header("Damaged Overlay")]
 
     public Image overlay;
     public float duration;
@@ -36,7 +36,9 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthUI();
       
       if (overlay.color.a > 0)
-      {
+      {     
+          if (health < 30)
+          return;
           durationTimer += Time.deltaTime;
           if (durationTimer > duration)
           {
