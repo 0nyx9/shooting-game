@@ -1,24 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerLook : MonoBehaviour
 {
-    public Camera cam;
-    private float xRotation = 0f;
-    public float xSensitivity = 10f;
-    public float ySensitivity = 10f;
+   public float mouseSensitivity = 200f;
+   public Transform cam;
+   private float xRotation = 0f;
+   private Vector2 lookInput;
 
-    public void ProcessLook(Vector2 input)
+   void Start()
     {
-        float mouseX = input.x;
-        float mouseY = input.y;
-
-        xRotation -= (mouseY * Time.deltaTime) * ySensitivity;
-        xRotation = Mathf.Clamp(xRotation, -80f, 80f);
-
-        cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * (mouseX * Time.deltaTime) * xSensitivity);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
+     public void OnLook(InputValue value)
+    {
+        lookInput = value.Get<Vector2>();
+    }
+
+    void HandleMouseLook()
+    {
+        float mouseX = lookInput.x * mouseSensitivity * Time.deltaTime;
+        float mouseY = lookInput.y * mouseSensitivity * Time.deltaTime;
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        cam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        transform.Rotate(Vector3.up * mouseX);
+    }
 }
