@@ -12,12 +12,14 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private Vector3 moveInput;
     private bool isGrounded;
-    public PlayerInput playerInput;
+    // public PlayerInput playerInput;
+    public UnityEngine.InputSystem.PlayerInput playerInput;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerInput = GetComponent<PlayerInput>();
+        // playerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<UnityEngine.InputSystem.PlayerInput>();
     }
 
     void Update()
