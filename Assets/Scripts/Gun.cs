@@ -45,12 +45,14 @@ public class Gun : MonoBehaviour
 
         Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         Instantiate(weaponFlash, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+           
 
 
         StopCoroutine(nameof(Recoil));
         StartCoroutine(nameof(Recoil));
 
     }
+
 
     IEnumerator Reload()
     {
@@ -62,7 +64,8 @@ public class Gun : MonoBehaviour
 
         while (t < halfReload)
         {
-            t += Time.deltaTime;
+            // t += Time.deltaTime;
+            t += Time.deltaTime * recoilSpeed;
             transform.localRotation = Quaternion.Slerp(initalRotation, targetRotation, t / halfReload);
             yield return null;
         }
@@ -71,7 +74,8 @@ public class Gun : MonoBehaviour
 
         while (t < halfReload)
         {
-            t += Time.deltaTime;
+            // t += Time.deltaTime;
+            t += Time.deltaTime * recoilSpeed;
             transform.localRotation = Quaternion.Slerp(targetRotation, initalRotation, t / halfReload);
             yield return null;
         }
@@ -89,13 +93,13 @@ public class Gun : MonoBehaviour
         StartCoroutine(Reload());
     }
 
-    private IEnumerable Recoil()
+    private IEnumerator Recoil()
     {
-        Vector3 recoilTarget = initalPosition + new Vector3(0, 0, recoilDistance);
+        Vector3 recoilTarget = initalPosition + new Vector3(recoilDistance, 0, 0);
         float t = 0f;
         while (t < 1f)
         {
-            t += Time.deltaTime ;
+            t += Time.deltaTime * recoilSpeed;
             transform.localPosition = Vector3.Lerp(initalPosition, recoilTarget, t);
             yield return null;
         }
@@ -104,7 +108,7 @@ public class Gun : MonoBehaviour
 
          while (t < 1f)
         {
-            t += Time.deltaTime;
+            t += Time.deltaTime * recoilSpeed;
             transform.localPosition = Vector3.Lerp(recoilTarget, initalPosition, t);
             yield return null;
         }
