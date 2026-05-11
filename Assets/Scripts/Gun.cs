@@ -9,6 +9,10 @@ public class Gun : MonoBehaviour
 
     public GameObject bullet;
     public Transform bulletSpawnPoint;
+    public GameObject weaponFlash;
+
+    public float recoilDistance = 0.1f;
+    public float recoilSpeed = 15f;
 
     private int currentAmmo;
     private bool isReloading = false;
@@ -40,6 +44,12 @@ public class Gun : MonoBehaviour
         currentAmmo--;
 
         Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Instantiate(weaponFlash, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+
+
+        StopCoroutine(nameof(Recoil));
+        StartCoroutine(nameof(Recoil));
+
     }
 
     IEnumerator Reload()
@@ -77,5 +87,28 @@ public class Gun : MonoBehaviour
         if (currentAmmo == magSize) return; 
 
         StartCoroutine(Reload());
+    }
+
+    private IEnumerable Recoil()
+    {
+        Vector3 recoilTarget = initalPosition + new Vector3(0, 0, recoilDistance);
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime ;
+            transform.localPosition = Vector3.Lerp(initalPosition, recoilTarget, t);
+            yield return null;
+        }
+
+        t = 0f;
+
+         while (t < 1f)
+        {
+            t += Time.deltaTime;
+            transform.localPosition = Vector3.Lerp(recoilTarget, initalPosition, t);
+            yield return null;
+        }
+
+        transform.localPosition = initalPosition;
     }
 }

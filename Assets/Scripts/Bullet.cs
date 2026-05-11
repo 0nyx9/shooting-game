@@ -1,4 +1,3 @@
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -10,7 +9,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.linearVelocity = transform.forward * speed;
+        rb.linearVelocity = -transform.right * speed;
         Destroy(gameObject, lifeTime);
     }
 
@@ -18,5 +17,4 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
 }

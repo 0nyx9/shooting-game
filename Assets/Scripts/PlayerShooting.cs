@@ -21,11 +21,12 @@ public class PlayerShooting : MonoBehaviour
         gun.TryReload();
     }
 
-    void Update()
+   void Update()
+{
+    if (isHoldingShoot && gun != null)
     {
-        if (isHoldingShoot && gun != null)
-        {
-            gun.Shoot();
-        }
+        Debug.Log("Trying to shoot!");
+        gun.Shoot();
     }
+}
 }
