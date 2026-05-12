@@ -3,28 +3,27 @@ using UnityEngine.InputSystem;
 
 public class PickUp : MonoBehaviour
 {
-
     public Material highlightMaterial;
     private Material[] originalMaterials;
     private MeshRenderer[] meshRenderers;
-    
+
     public GameObject weaponPrefab;
     public float lookRange = 3f;
     private bool isLookedAt = false;
     private Camera playerCam;
     private PlayerShooting player;
-    
+
     void Start()
     {
-      meshRenderers = GetComponentsInChildren<MeshRenderer>();
-      originalMaterials = new Material[meshRenderers.Length];  
-      for (int i = 0; i < meshRenderers.Length; i++)
-      {
-          originalMaterials[i] = meshRenderers[i].material;
-      }
+        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        originalMaterials = new Material[meshRenderers.Length];
+        for (int i = 0; i < meshRenderers.Length; i++)
+        {
+            originalMaterials[i] = meshRenderers[i].material;
+        }
 
-      player = FindObjectOfType<PlayerShooting>();
-      playerCam = player.GetComponentInChildren<Camera>();
+        player = FindObjectOfType<PlayerShooting>();
+        playerCam = player.GetComponentInChildren<Camera>();
     }
 
     void Update()
@@ -37,39 +36,35 @@ public class PickUp : MonoBehaviour
                 if (!isLookedAt)
                 {
                     SetLookedAt(true);
-
-                    return;
                 }
+                return; 
+            }
+        }
 
-            }
-            if (isLookedAt)
-            {
-                SetLookedAt(false);
-            }
+        if (isLookedAt)
+        {
+            SetLookedAt(false);
+        }
     }
 
     void SetLookedAt(bool lookedAt)
     {
         isLookedAt = lookedAt;
-       if (lookedAt)
+        if (lookedAt)
+        {
+            foreach (MeshRenderer mr in meshRenderers)
             {
-                foreach(MeshRenderer mr in meshRenderers)
-                {
-                    mr.material = highlightMaterial;
-                }
+                mr.material = highlightMaterial;
             }
-            else
+        }
+        else
+        {
+            for (int i = 0; i < meshRenderers.Length; i++)
             {
-                for (int i = 0; i < meshRenderers.Length; i++)
-                {
-                    meshRenderers[i].material = originalMaterials[i];
-                }
+                meshRenderers[i].material = originalMaterials[i];
             }
+        }
     }
-
-
-}
-
 
     public void OnPickUp()
     {
@@ -87,5 +82,4 @@ public class PickUp : MonoBehaviour
         player.gun = newWeapon.GetComponent<Gun>();
         Destroy(gameObject);
     }
-
 }
