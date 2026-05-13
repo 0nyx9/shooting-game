@@ -690,6 +690,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2212638441120280554, guid: 0fccf8e39d8f294b99c1401bce3a693c, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: 4aa48ded-52c5-468a-acf8-4a41767b819d
+      objectReference: {fileID: 0}
     - target: {fileID: 4965438261709640327, guid: 0fccf8e39d8f294b99c1401bce3a693c, type: 3}
       propertyPath: m_Name
       value: Pistol Dropped
