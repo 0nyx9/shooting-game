@@ -594,10 +594,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zombie Girl
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: ebf9efbdbc96599f28e772ad940054b2, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3170f93cee6db981d8068ba595cb32f8, type: 2}
+    - target: {fileID: 5866666021909216657, guid: ebf9efbdbc96599f28e772ad940054b2, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ebf9efbdbc96599f28e772ad940054b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1803629700}
   m_SourcePrefab: {fileID: 100100000, guid: ebf9efbdbc96599f28e772ad940054b2, type: 3}
 --- !u!1001 &1497575545
 PrefabInstance:
@@ -768,6 +779,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1803629697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ebf9efbdbc96599f28e772ad940054b2, type: 3}
+  m_PrefabInstance: {fileID: 1308860401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1803629698 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: ebf9efbdbc96599f28e772ad940054b2, type: 3}
+  m_PrefabInstance: {fileID: 1308860401}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1803629700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803629697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d81f4dc13a157ae1fb4e32d650aa4ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombieLogic
+  health: 100
+  anim: {fileID: 1803629698}
+  moveSpeed: 2
 --- !u!1001 &2039862071
 PrefabInstance:
   m_ObjectHideFlags: 0

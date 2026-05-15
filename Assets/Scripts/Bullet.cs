@@ -13,8 +13,21 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    // private void OnCollisionEnter(Collision collision)
+    // {
+    //     Destroy(gameObject);
+    // }
+
+    void OnCollisionEnter(Collision collision)
+{
+    if (collision.gameObject.CompareTag("Zombie"))
     {
-        Destroy(gameObject);
+        ZombieLogic zombie = collision.gameObject.GetComponent<ZombieLogic>();
+        if (zombie != null)
+        {
+            zombie.TakeDamage(25f); 
+        }
     }
+    Destroy(gameObject); 
+}
 }
