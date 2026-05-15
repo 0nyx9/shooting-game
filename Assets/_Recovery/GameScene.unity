@@ -184,6 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickUp
   highlightMaterial: {fileID: 0}
   gunPrefab: {fileID: 0}
+  droppedPrefab: {fileID: 0}
   reachDistance: 5
 --- !u!65 &375940938
 BoxCollider:
@@ -493,34 +494,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3677752938640822123, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145297052410057073, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
-      propertyPath: m_Size.x
-      value: 4.240404
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145297052410057073, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9939875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145297052410057073, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
-      propertyPath: m_Size.z
-      value: 3.8976107
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145297052410057073, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
-      propertyPath: m_Center.x
-      value: -0.51356596
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145297052410057073, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
-      propertyPath: m_Center.y
-      value: 0.29699376
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145297052410057073, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
-      propertyPath: m_Center.z
-      value: -0.5852213
-      objectReference: {fileID: 0}
     - target: {fileID: 5786097810451525583, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
       propertyPath: m_Name
       value: Gun_Dropped
@@ -690,10 +663,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2212638441120280554, guid: 0fccf8e39d8f294b99c1401bce3a693c, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: 4aa48ded-52c5-468a-acf8-4a41767b819d
-      objectReference: {fileID: 0}
     - target: {fileID: 4965438261709640327, guid: 0fccf8e39d8f294b99c1401bce3a693c, type: 3}
       propertyPath: m_Name
       value: Pistol Dropped
@@ -1088,7 +1057,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  playerInput: {fileID: 0}
+  playerInput: {fileID: 7961566376248913390}
 --- !u!114 &7961566376248913392
 MonoBehaviour:
   m_ObjectHideFlags: 0

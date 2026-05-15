@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public int magSize = 20;
 
     public GameObject bullet;
+    public GameObject floorPrefab;
     public Transform bulletSpawnPoint;
     public GameObject weaponFlash;
 
@@ -46,7 +47,7 @@ public class Gun : MonoBehaviour
         Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         Instantiate(weaponFlash, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
            
-
+Debug.Log("Pistol is trying to shoot!");
 
         StopCoroutine(nameof(Recoil));
         StartCoroutine(nameof(Recoil));

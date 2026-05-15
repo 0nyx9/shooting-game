@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8371653277672579678}
   - component: {fileID: 2984087062438588010}
   - component: {fileID: 2072397264756412093}
-  - component: {fileID: 8000606548106427307}
   m_Layer: 0
   m_Name: Weapon_01_3
   m_TagString: Untagged
@@ -91,28 +90,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8000606548106427307
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137678530859997941}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3712014988299530561, guid: fdf00ae655c6f9d4abac02c38bd47b3e, type: 3}
 --- !u!1 &3936809874358682811
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 3936809874358682811}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1856, y: 0.0722, z: 0.0008}
+  m_LocalPosition: {x: -0.3073, y: 0.0722, z: 0.0008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -197,6 +174,7 @@ MonoBehaviour:
   fireRate: 0.15
   magSize: 20
   bullet: {fileID: 5341742223406746680, guid: 9c3cddd6060b7cc4eadfb9cefcf6e7db, type: 3}
+  floorPrefab: {fileID: 4965438261709640327, guid: 0fccf8e39d8f294b99c1401bce3a693c, type: 3}
   bulletSpawnPoint: {fileID: 8086033266447252208}
   weaponFlash: {fileID: 2653112849758221249, guid: 9859772a8ed2278d398bbfbd1303d683, type: 3}
   recoilDistance: 0.1
@@ -212,7 +190,6 @@ GameObject:
   - component: {fileID: 8116155075977294907}
   - component: {fileID: 3141442408904332027}
   - component: {fileID: 3022981560694259401}
-  - component: {fileID: 6046095663842076106}
   m_Layer: 0
   m_Name: Weapon_01_4
   m_TagString: Untagged
@@ -292,28 +269,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6046095663842076106
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6650470630134122455}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5433442519505195169, guid: fdf00ae655c6f9d4abac02c38bd47b3e, type: 3}
 --- !u!1 &8502960412684221905
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +280,6 @@ GameObject:
   - component: {fileID: 7994395200163922544}
   - component: {fileID: 4584101929267674204}
   - component: {fileID: 2952207158904981720}
-  - component: {fileID: 8765265625684021415}
   m_Layer: 0
   m_Name: Weapon_01
   m_TagString: Untagged
@@ -405,28 +359,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8765265625684021415
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8502960412684221905}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2920378444690669910, guid: fdf00ae655c6f9d4abac02c38bd47b3e, type: 3}
 --- !u!1 &9051692995052618235
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +370,6 @@ GameObject:
   - component: {fileID: 4744854618519397250}
   - component: {fileID: 4750580526164418305}
   - component: {fileID: 9136702200399345792}
-  - component: {fileID: 7237317679767152662}
   m_Layer: 0
   m_Name: Weapon_01_2
   m_TagString: Untagged
@@ -518,25 +449,3 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7237317679767152662
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9051692995052618235}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 7953271441601586070, guid: fdf00ae655c6f9d4abac02c38bd47b3e, type: 3}

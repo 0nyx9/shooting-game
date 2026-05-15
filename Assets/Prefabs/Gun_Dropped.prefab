@@ -179,7 +179,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &5593365231964769494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PickUp
   highlightMaterial: {fileID: 2100000, guid: 378219fa63f2ee44181875a166e47921, type: 2}
   gunPrefab: {fileID: 5786097810451525583, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
+  droppedPrefab: {fileID: 5786097810451525583, guid: 260ff1508afea5241b6511d8fbe92201, type: 3}
   reachDistance: 5
 --- !u!114 &9065551042896144320
 MonoBehaviour:

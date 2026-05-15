@@ -177,6 +177,7 @@ MonoBehaviour:
   fireRate: 0.15
   magSize: 20
   bullet: {fileID: 5341742223406746680, guid: 9c3cddd6060b7cc4eadfb9cefcf6e7db, type: 3}
+  floorPrefab: {fileID: 5786097810451525583, guid: 4b22ab3a9af430d05861698a858aeb1b, type: 3}
   bulletSpawnPoint: {fileID: 860425229749191796}
   weaponFlash: {fileID: 2653112849758221249, guid: 9859772a8ed2278d398bbfbd1303d683, type: 3}
   recoilDistance: 0.1

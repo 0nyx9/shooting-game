@@ -39,6 +39,8 @@ public class GunPickUp : MonoBehaviour
             else if (isLookingAt) ToggleHighlight(false);
         }
         else if (isLookingAt) ToggleHighlight(false);
+
+        
     }
 
     void ToggleHighlight(bool on)
@@ -64,3 +66,5 @@ public class GunPickUp : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+

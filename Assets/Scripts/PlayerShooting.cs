@@ -28,6 +28,8 @@ public class PlayerShooting : MonoBehaviour
     {
         Debug.Log("Trying to shoot!");
         gun.Shoot();
+
+        
     }
 }
 }
