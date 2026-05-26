@@ -90,10 +90,104 @@ public class ZombieLogic : MonoBehaviour
     //     }
     // }
 
+    // void Update()
+    // {
+    //     if (isDead) return;
+
+    //     if (player == null)
+    //     {
+    //         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+    //         if (playerObj != null) player = playerObj.transform;
+    //         else return; 
+    //     }
+
+    //     float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+
+    //     // --- State Machine Switching Logic ---
+    //     if (distanceToPlayer <= attackRange)
+    //     {
+    //         currentState = ZombieState.Attacking;
+    //     }
+    //     else if (distanceToPlayer <= agroRange)
+    //     {
+    //         currentState = ZombieState.Chasing;
+    //     }
+    //     else
+    //     {
+    //         if (currentState == ZombieState.Chasing) 
+    //         {
+    //             currentState = ZombieState.Wandering;
+    //             GetNewWanderTarget();
+    //         }
+    //     }
+
+    //     // --- Handle Logic (Only Triggers/Timers here, NO movement/rotation) ---
+    //     // if (currentState == ZombieState.Attacking)
+    //     // {
+    //     //     if (anim.GetBool("isWalking")) anim.SetBool("isWalking", false);
+
+    //     //     if (Time.time - lastAttackTime >= attackCooldown)
+    //     //     {
+    //     //         anim.SetTrigger("Attack");
+    //     //         lastAttackTime = Time.time;
+    //     //         Debug.Log("Zombie bit the player!");
+    //     //     }
+    //     // }
+
+    //     if (currentState == ZombieState.Attacking)
+    //     {
+    //         if (anim.GetBool("isWalking")) anim.SetBool("isWalking", false);
+
+    //         if (Time.time - lastAttackTime >= attackCooldown)
+    //         {
+    //             anim.SetTrigger("Attack");
+    //             lastAttackTime = Time.time;
+
+    //             // --- DEAL DAMAGE TO PLAYER ---
+    //             PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+    //             if (playerHealth != null)
+    //             {
+    //                 playerHealth.TakeDamage(15f); // Deals 15 damage per bite
+    //             }
+    //             else
+    //             {
+    //                 Debug.LogWarning("Zombie is biting, but the Player GameObject is missing the PlayerHealth script!");
+    //             }
+    //         }
+    //     }
+
+    //     else if (currentState == ZombieState.Wandering)
+    //     {
+    //         Vector3 targetPos = new Vector3(wanderTarget.x, transform.position.y, wanderTarget.z);
+    //         if (Vector3.Distance(transform.position, targetPos) < 0.6f)
+    //         {
+    //             wanderTimer += Time.deltaTime;
+    //             if (anim.GetBool("isWalking")) anim.SetBool("isWalking", false);
+    //             moveDirection = Vector3.zero;
+
+    //             if (wanderTimer >= wanderWaitTime)
+    //             {
+    //                 GetNewWanderTarget();
+    //                 wanderTimer = 0f;
+    //             }
+    //         }
+    //         else
+    //         {
+    //             if (!anim.GetBool("isWalking")) anim.SetBool("isWalking", true);
+    //         }
+    //     }
+    //     else if (currentState == ZombieState.Chasing)
+    //     {
+    //         if (!anim.GetBool("isWalking")) anim.SetBool("isWalking", true);
+    //     }
+    // }
+
+
     void Update()
     {
         if (isDead) return;
 
+        // 1. Try to find the player if missing
         if (player == null)
         {
             GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -101,9 +195,22 @@ public class ZombieLogic : MonoBehaviour
             else return; 
         }
 
+        // 2. Safety Check: If the player is dead, drop reference and go back to wandering
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+        if (playerHealth != null && playerHealth.isDead)
+        {
+            if (currentState != ZombieState.Wandering)
+            {
+                currentState = ZombieState.Wandering;
+                GetNewWanderTarget();
+            }
+            player = null; // Drop the target reference completely
+            return; 
+        }
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-        // --- State Machine Switching Logic ---
+        // 3. State Machine Switching Logic
         if (distanceToPlayer <= attackRange)
         {
             currentState = ZombieState.Attacking;
@@ -121,19 +228,7 @@ public class ZombieLogic : MonoBehaviour
             }
         }
 
-        // --- Handle Logic (Only Triggers/Timers here, NO movement/rotation) ---
-        // if (currentState == ZombieState.Attacking)
-        // {
-        //     if (anim.GetBool("isWalking")) anim.SetBool("isWalking", false);
-
-        //     if (Time.time - lastAttackTime >= attackCooldown)
-        //     {
-        //         anim.SetTrigger("Attack");
-        //         lastAttackTime = Time.time;
-        //         Debug.Log("Zombie bit the player!");
-        //     }
-        // }
-
+        // 4. Handle Logic Timers and Triggers
         if (currentState == ZombieState.Attacking)
         {
             if (anim.GetBool("isWalking")) anim.SetBool("isWalking", false);
@@ -143,19 +238,13 @@ public class ZombieLogic : MonoBehaviour
                 anim.SetTrigger("Attack");
                 lastAttackTime = Time.time;
 
-                // --- DEAL DAMAGE TO PLAYER ---
-                PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+                // Deal damage directly to player health script
                 if (playerHealth != null)
                 {
-                    playerHealth.TakeDamage(15f); // Deals 15 damage per bite
-                }
-                else
-                {
-                    Debug.LogWarning("Zombie is biting, but the Player GameObject is missing the PlayerHealth script!");
+                    playerHealth.TakeDamage(15f);
                 }
             }
         }
-
         else if (currentState == ZombieState.Wandering)
         {
             Vector3 targetPos = new Vector3(wanderTarget.x, transform.position.y, wanderTarget.z);
